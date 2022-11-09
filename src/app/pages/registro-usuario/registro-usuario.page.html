@@ -1,0 +1,80 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Registro de Usuario</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form novalidate [formGroup]="formulario" (ngSubmit)="agregarProducto()">
+    <ion-item>
+      <ion-label position="floating">Nombre</ion-label>
+      <ion-input
+      formControlName="nombre" type="text"></ion-input>
+      <ion-note
+        slot="error"
+        *ngIf="obtenerCampo('nombre').invalid &&
+               obtenerCampo('nombre').errors &&
+               obtenerCampo('nombre').errors.required &&
+               fueAlterado('nombre')
+               "
+        > Este campo es requerido</ion-note>
+      <ion-note
+        slot="error"
+        *ngIf="obtenerCampo('nombre').invalid &&
+               obtenerCampo('nombre').errors &&
+               obtenerCampo('nombre').errors.maxlength && f
+               fueTocado('nombre')
+        "
+        > La cantidad de caracteres maxima es 15</ion-note>
+      <ion-note
+        slot="error"
+        *ngIf="obtenerCampo('apellido').invalid &&
+               obtenerCampo('apellido').errors &&
+               obtenerCampo('apellido').errors.maxlength &&
+               fueAlterado('apellido')
+        "
+        > Este campo es requerido</ion-note>
+      <ion-note
+        slot="error"
+        *ngIf="obtenerCampo('apellido').invalid &&
+               obtenerCampo('apellido').errors &&
+               obtenerCampo('apellido').errors.required &&
+               fueAlterado('apellido')
+               "
+        > La cantidad de caracteres maxima es 20</ion-note>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Edad</ion-label>
+      <ion-input
+        formControlName="edad"
+      type="number"></ion-input>
+      <ion-note
+        slot="error"
+        *ngIf="obtenerCampo('edad').invalid &&
+               obtenerCampo('edad').errors &&
+               obtenerCampo('edad').errors.required &&
+               fueTocado('edad')
+        "
+        > Este campo es requerido</ion-note>
+        <ion-note
+        slot="error"
+        *ngIf="obtenerCampo('edad').invalid &&
+               obtenerCampo('edad').errors &&
+               obtenerCampo('edad').errors.maxlength &&
+               fueAlterado('edad')
+        "
+        > La cantidad de caracteres maxima es 98</ion-note>
+    </ion-item>
+    </ion-item>
+    <ion-item>
+      <ion-button
+        type="submit"
+        [disabled]="formulario.invalid && !cargaArchivo">
+        Guardar
+      </ion-button>
+    </ion-item>
+  </form>
+</ion-content>
+
+
+

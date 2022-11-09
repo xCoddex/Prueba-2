@@ -1,0 +1,7 @@
+{
+  "name": "BackEndNFLTDA",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
