@@ -22,8 +22,16 @@
         slot="error"
         *ngIf="obtenerCampo('nombre').invalid &&
                obtenerCampo('nombre').errors &&
-               obtenerCampo('nombre').errors.maxlength && f
-               fueTocado('nombre')
+               obtenerCampo('nombre').errors.minlength &&
+               fueAlterado('nombre')
+        "
+        > La cantidad de caracteres minima es 1</ion-note>
+      <ion-note
+        slot="error"
+        *ngIf="obtenerCampo('nombre').invalid &&
+               obtenerCampo('nombre').errors &&
+               obtenerCampo('nombre').errors.maxlength &&
+               fueAlterado('nombre')
         "
         > La cantidad de caracteres maxima es 15</ion-note>
       <ion-note
@@ -34,6 +42,14 @@
                fueAlterado('apellido')
         "
         > Este campo es requerido</ion-note>
+      <ion-note
+        slot="error"
+        *ngIf="obtenerCampo('apellido').invalid &&
+               obtenerCampo('apellido').errors &&
+               obtenerCampo('apellido').errors.minlength &&
+               fueAlterado('apellido')
+        "
+        > La cantidad de caracteres minima es 4</ion-note>
       <ion-note
         slot="error"
         *ngIf="obtenerCampo('apellido').invalid &&
@@ -53,10 +69,18 @@
         *ngIf="obtenerCampo('edad').invalid &&
                obtenerCampo('edad').errors &&
                obtenerCampo('edad').errors.required &&
-               fueTocado('edad')
+               fueAlterado('edad')
         "
         > Este campo es requerido</ion-note>
-        <ion-note
+      <ion-note
+        slot="error"
+        *ngIf="obtenerCampo('edad').invalid &&
+               obtenerCampo('edad').errors &&
+               obtenerCampo('edad').errors.minlength &&
+               fueAlterado('edad')
+        "
+        > La cantidad de caracteres minima es 18</ion-note>
+      <ion-note
         slot="error"
         *ngIf="obtenerCampo('edad').invalid &&
                obtenerCampo('edad').errors &&
@@ -64,6 +88,54 @@
                fueAlterado('edad')
         "
         > La cantidad de caracteres maxima es 98</ion-note>
+      <ion-note
+        slot="error"
+        *ngIf="obtenerCampo('username').invalid &&
+               obtenerCampo('username').errors &&
+               obtenerCampo('username').errors.required &&
+               fueAlterado('username')
+        "
+        > Este campo es requerido</ion-note>
+      <ion-note
+        slot="error"
+        *ngIf="obtenerCampo('username').invalid &&
+               obtenerCampo('username').errors &&
+               obtenerCampo('username').errors.minlength &&
+               fueAlterado('username')
+        "
+        > La cantidad de caracteres minima es 5</ion-note>
+      <ion-note
+        slot="error"
+        *ngIf="obtenerCampo('username').invalid &&
+               obtenerCampo('username').errors &&
+               obtenerCampo('username').errors.maxlength &&
+               fueAlterado('username')
+        "
+        > La cantidad de caracteres maxima es 10</ion-note> ***
+      <ion-note
+        slot="error"
+        *ngIf="obtenerCampo('password').invalid &&
+               obtenerCampo('password').errors &&
+               obtenerCampo('password').errors.required &&
+               fueAlterado('password')
+        "
+        > Este campo es requerido</ion-note>
+      <ion-note
+        slot="error"
+        *ngIf="obtenerCampo('password').invalid &&
+               obtenerCampo('password').errors &&
+               obtenerCampo('password').errors.minlength &&
+               fueAlterado('password')
+        "
+        > La cantidad de caracteres minima es 8</ion-note>
+      <ion-note
+        slot="error"
+        *ngIf="obtenerCampo('password').invalid &&
+               obtenerCampo('password').errors &&
+               obtenerCampo('password').errors.maxlength &&
+               fueAlterado('password')
+        "
+        > La cantidad de caracteres maxima es 16</ion-note>
     </ion-item>
     </ion-item>
     <ion-item>
@@ -75,6 +147,3 @@
     </ion-item>
   </form>
 </ion-content>
-
-
-
