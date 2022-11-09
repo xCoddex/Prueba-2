@@ -1,0 +1,11 @@
+{
+  "Productos": [
+    {
+      "id": 1,
+      "detalle": "",
+      "tipo": "",
+      "vencimiento": "",
+      "precio": ""
+    }
+  ]
+}
