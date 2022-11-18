@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { BasedatosService } from 'src/app/services/basedatos.service';
 
 @Component({
   selector: 'app-agregar-producto',
@@ -7,9 +9,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AgregarProductoPage implements OnInit {
 
-  constructor() { }
+  PRODUCTOS: any = [];
 
-  ngOnInit() {
+  constructor(
+    private basedatosService: BasedatosService,
+    private router: Router
+  ) { }
+
+  ngOnInit() { }
+
+  ionViewDidEnter() {
+    this.basedatosService.getProductos().subscribe((response) => {
+      this.PRODUCTOS = response;
+    })
   }
 
+  borrarProducto(producto) {
+    if (window.confirm('Estas seguro?')) {
+      this.basedatosService.borrarProducto()
+      .subscribe(() => {
+          this.ionViewDidEnter();
+          console.log('Producto eliminado')
+        }
+      )
+    }
+  }
 }

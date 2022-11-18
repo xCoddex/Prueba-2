@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Productos } from './pages/modelo/productos';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  constructor() {}
+
+  public productos: Array<Productos>=[
+    {
+      nombre: '',
+      precio: '',
+      descripcion: '',
+      vencimiento: '',
+    }
+  ]
 }

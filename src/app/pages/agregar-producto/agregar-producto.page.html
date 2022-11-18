@@ -1,9 +1,32 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>agregar-producto</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button default-href="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Volver</ion-title>
   </ion-toolbar>
-</ion-header>
+  </ion-header>
 
 <ion-content>
 
+  <ion-list>
+    <ion-item *ngFor="let producto of PRODUCTOS">
+      <ion-label>
+        <h1>NOMBRE{{producto.nombre}}</h1>
+        <h2>PRECIO:{{producto.precio}}</h2>
+        <h3>DESCRIPCION:{{producto.descripcion}}</h3>
+        <h4>VENCIMIENTO:{{producto.vencimiento}}</h4>
+        <img [src]="producto.urlfoto"/>
+      </ion-label>
+
+      <div class="item-note" item-end>
+        <button ion-button clear [routerLink]="['/productos/', producto.id]">
+          <ion-icon name="create" style="zoom:1.5"></ion-icon>
+        </button>
+        <button ion-button clear (click)="borrarProducto(producto)">
+          <ion-icon name="trash" style="zoom:1.5"></ion-icon>
+        </button>
+      </div>
+    </ion-item>
+  </ion-list>
 </ion-content>
